@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <sidebar :drawer="drawer" />
+    <sidebar :drawer="drawer" :drawerItems="drawerItems" />
     <topbar @drawerEvent="drawer = !drawer" />
     <!-- Sizes your content based upon application components -->
     <v-main>
@@ -18,6 +18,10 @@
 </template>
 
 <script lang="ts">
+import {
+  NavigationDrawer,
+  NavigationItem,
+} from "@/router/navigations/NavigationDrawer";
 import Vue from "vue";
 import Sidebar from "./Sidebar.vue";
 import Topbar from "./Topbar.vue";
@@ -28,8 +32,19 @@ export default Vue.extend({
     Sidebar,
     Topbar,
   },
+  props: {
+    DrawerBuilder: {
+      required: true,
+      type: NavigationDrawer,
+    },
+  },
   data: () => ({
     drawer: true,
   }),
+  computed: {
+    drawerItems(): NavigationItem[] {
+      return this.DrawerBuilder.build(this.$can);
+    },
+  },
 });
 </script>

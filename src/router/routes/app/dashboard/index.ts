@@ -1,3 +1,5 @@
+import { RouteConfig } from "vue-router";
+
 export const DashboardRouteDef = {
   CONTACT: {
     path: "contact",
@@ -25,7 +27,7 @@ export const DashboardRouteDef = {
  * Routes
  * @type {import('vue-router').RouteConfig[]}
  */
-export const DashboardRoutes = [
+export const DashboardRoutes: Array<RouteConfig> = [
   {
     path: "dashboard",
     name: "dashboard",
@@ -34,5 +36,22 @@ export const DashboardRoutes = [
         /* webpackChunkName: "DashboardView" */ "@/views/dashboard/index.vue"
       ),
     children: [DashboardRouteDef.CONTACT, DashboardRouteDef.ABOUT],
+  },
+];
+
+/**
+ * Navigations
+ */
+export const DashboardDrawerNavigation: Array<RouteConfig> = [
+  {
+    path: "dashboard",
+    name: "dashboard",
+    meta: {
+      title: "Dashboard",
+      ability: {
+        action: "read",
+        subject: "Dashboard",
+      },
+    },
   },
 ];

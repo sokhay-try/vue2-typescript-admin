@@ -1,6 +1,8 @@
 import { RouteConfig } from "vue-router";
 import { AppWireframe } from "@/wireframes";
 import { DashboardRoutes } from "./dashboard";
+import { DrawerBuilder } from "@/router/navigations/drawer.builder";
+import { SettingRoutes } from "./setting";
 
 export const ApplicationRoutes: Array<RouteConfig> = [
   {
@@ -13,10 +15,12 @@ export const ApplicationRoutes: Array<RouteConfig> = [
   {
     path: "/app",
     component: AppWireframe,
-    props: {},
+    props: {
+      DrawerBuilder,
+    },
     meta: {
       requiresAuth: true,
     },
-    children: [...DashboardRoutes],
+    children: [...DashboardRoutes, ...SettingRoutes],
   },
 ];
