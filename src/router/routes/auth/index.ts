@@ -1,10 +1,11 @@
+import { RouteName } from "@/constants";
 import AuthWireframe from "@/wireframes/AuthWireframe.vue";
 import { RouteConfig } from "vue-router";
 
 export const AuthRouteDef = {
   LOGIN: {
     path: "login",
-    name: "auth.login",
+    name: RouteName.AUTH.LOGIN,
     meta: {
       title: "Login",
     },
@@ -20,7 +21,7 @@ export const AuthRoutes: Array<RouteConfig> = [
   {
     path: "/login",
     redirect: {
-      name: "auth.login",
+      name: RouteName.AUTH.LOGIN,
     },
   },
   {
@@ -33,7 +34,7 @@ export const AuthRoutes: Array<RouteConfig> = [
       {
         path: "",
         redirect: {
-          name: "auth.login",
+          name: RouteName.AUTH.LOGIN,
         },
       },
       AuthRouteDef.LOGIN,

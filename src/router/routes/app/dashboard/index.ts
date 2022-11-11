@@ -1,9 +1,10 @@
+import { AbilityEnum, IconEnum, RouteName } from "@/constants";
 import { RouteConfig } from "vue-router";
 
 export const DashboardRouteDef = {
   CONTACT: {
     path: "contact",
-    name: "app.dashboard.contact",
+    name: RouteName.DASHBOARD.CONTACT,
     meta: {
       title: "contact",
     },
@@ -14,7 +15,7 @@ export const DashboardRouteDef = {
   },
   ABOUT: {
     path: "about",
-    name: "app.dashboard.about",
+    name: RouteName.DASHBOARD.ABOUT,
     meta: {
       title: "about",
     },
@@ -30,7 +31,7 @@ export const DashboardRouteDef = {
 export const DashboardRoutes: Array<RouteConfig> = [
   {
     path: "dashboard",
-    name: "dashboard",
+    name: RouteName.DASHBOARD.INDEX,
     component: () =>
       import(
         /* webpackChunkName: "DashboardView" */ "@/views/dashboard/index.vue"
@@ -48,9 +49,10 @@ export const DashboardDrawerNavigation: Array<RouteConfig> = [
     name: "dashboard",
     meta: {
       title: "Dashboard",
+      icon: IconEnum.DASHBOARD,
       ability: {
-        action: "read",
-        subject: "Dashboard",
+        action: AbilityEnum.Action.READ,
+        subject: AbilityEnum.Subject.DASHBOARD,
       },
     },
   },

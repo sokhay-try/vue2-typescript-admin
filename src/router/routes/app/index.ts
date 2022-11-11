@@ -3,13 +3,14 @@ import { AppWireframe } from "@/wireframes";
 import { DashboardRoutes } from "./dashboard";
 import { DrawerBuilder } from "@/router/navigations/drawer.builder";
 import { SettingRoutes } from "./setting";
+import { RouteName } from "@/constants";
 
 export const ApplicationRoutes: Array<RouteConfig> = [
   {
     path: "",
     name: "root",
     redirect: {
-      name: "dashboard",
+      name: RouteName.DASHBOARD.INDEX,
     },
   },
   {
