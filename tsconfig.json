@@ -33,7 +33,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-, "src/mixins/canAccessToPage.js", "src/mixins/canAccessToPage.js"  ],
+,],
   "exclude": [
     "node_modules"
   ]

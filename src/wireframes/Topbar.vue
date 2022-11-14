@@ -12,7 +12,7 @@
                 <v-img src="https://randomuser.me/api/portraits/women/81.jpg" />
               </v-avatar>
             </v-badge>
-            <span class="ml-3">Jane Smith</span>
+            <span class="ml-3">{{ currentUser }}</span>
           </v-chip>
         </span>
       </template>
@@ -23,7 +23,7 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>Jane Smith</v-list-item-title>
+            <v-list-item-title>{{ currentUser }}</v-list-item-title>
             <v-list-item-subtitle>Logged In</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -36,12 +36,19 @@
             {{ menu.title }}
           </v-list-item-title>
         </v-list-item>
+        <v-list-item link @click="onLogout">
+          <v-list-item-icon>
+            <v-icon>mdi-logout</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title> Logout </v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
   </v-app-bar>
 </template>
 
 <script lang="ts">
+import { RouteName } from "@/constants";
 import Vue from "vue";
 
 export default Vue.extend({
@@ -52,9 +59,21 @@ export default Vue.extend({
         { title: "Profile", icon: "mdi-account" },
         { title: "Change Password", icon: "mdi-key" },
         { title: "Setting", icon: "mdi-cog" },
-        { title: "Logout", icon: "mdi-logout" },
       ],
     };
+  },
+  methods: {
+    onLogout() {
+      this.$store.dispatch({
+        type: "auth/logout",
+      });
+      this.$router.push({ name: RouteName.AUTH.LOGIN });
+    },
+  },
+  computed: {
+    currentUser() {
+      return this.$store.getters["auth/currentUser"];
+    },
   },
 });
 </script>
