@@ -11,7 +11,7 @@ import Vue from "vue";
 export default Vue.extend({
   name: "AboutView",
   mounted() {
-    this.$store.dispatch({ type: "profile/fetchData", payload: { id: 3 } });
+    this.$store.dispatch({ type: "profile/getUserById", payload: { id: 1 } });
   },
   computed: {
     fullName(): string {
