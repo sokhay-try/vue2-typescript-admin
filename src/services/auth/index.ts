@@ -8,3 +8,5 @@ export default class AuthService extends BaseHttpService {
     });
   }
 }
+
+export const AuthSV = new AuthService();

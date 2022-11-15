@@ -2,13 +2,11 @@
 import { ActionTree } from "vuex";
 import { ProfileState, IUser } from "./types";
 import { RootState } from "../../types";
-import ProfileService from "@/services/profile";
-
-const profileSV = new ProfileService();
+import { ProfileSV } from "@/services/profile";
 
 export const actions: ActionTree<ProfileState, RootState> = {
   async getUserById({ commit }, { payload }): Promise<any> {
-    const response = await profileSV.getUserById(payload.id);
+    const response = await ProfileSV.getUserById(payload.id);
     const data: IUser = response && response.data;
     commit("profileLoaded", data);
   },

@@ -6,3 +6,5 @@ export default class ProfileService extends BaseHttpService {
     return result;
   }
 }
+
+export const ProfileSV = new ProfileService();
