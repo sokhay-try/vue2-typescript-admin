@@ -2,10 +2,21 @@
   <div>
     <h1>This is Dashboard => About</h1>
     <h1>My profile: {{ fullName }}</h1>
+    <h1>{{ $t("auth.success") }}</h1>
+
+    <h1>Change Langues</h1>
+    <v-select
+      :items="LOCALES"
+      item-value="value"
+      item-text="caption"
+      label="Switch Langues"
+      outlined
+    ></v-select>
   </div>
 </template>
 
 <script lang="ts">
+import { LOCALES } from "@/local/local-types";
 import Vue from "vue";
 
 export default Vue.extend({
@@ -17,6 +28,11 @@ export default Vue.extend({
     fullName(): string {
       return this.$store.getters["profile/fullName"];
     },
+  },
+  data() {
+    return {
+      LOCALES,
+    };
   },
 });
 </script>

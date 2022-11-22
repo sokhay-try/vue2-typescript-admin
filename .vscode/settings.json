@@ -4,4 +4,18 @@
     "editor.codeActionsOnSave": {
       "source.fixAll": true
     },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "[javascript]": {
+      "editor.defaultFormatter": "Vue.volar"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "Vue.volar"
+    },
+    "[vue]": {
+      "gitlens.codeLens.scopes": ["document"],
+      "editor.semanticHighlighting.enabled": true,
+      "editor.defaultFormatter": "Vue.volar"
+    }
   }
