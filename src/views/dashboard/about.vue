@@ -10,6 +10,7 @@
       item-value="value"
       item-text="caption"
       label="Switch Langues"
+      v-model="$i18n.locale"
       outlined
     ></v-select>
   </div>

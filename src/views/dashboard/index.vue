@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>This is Dashboard page</h1>
+    <h1 class="test">This is Dashboard page</h1>
     <router-link :to="{ name: 'app.dashboard.contact' }"
       >Go to Contact</router-link
     >
@@ -18,3 +18,9 @@ export default Vue.extend({
   name: "DashboardView",
 });
 </script>
+
+<style lang="scss" scoped>
+.test {
+  color: $primary-color;
+}
+</style>

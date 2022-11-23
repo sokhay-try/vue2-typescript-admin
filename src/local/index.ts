@@ -7,4 +7,4 @@ export default {
   [Locales.KH]: kh,
 };
 
-export const defaultLocale = Locales.EN;
+export const defaultLocale = Locales.KH;
